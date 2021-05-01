@@ -29,7 +29,7 @@ function App() {
 
   const fetchRecipes = async (id) => {
     console.log('this will fetch all recipes within a category id', id);
-    let res = await fetch(`http://localhost:3000/api/v1/categories/${id}/recipes`);
+    let res = await fetch(`${apiUrl}api/v1/categories/${id}/recipes`);
     let data = await res.json();
     console.log(data);
     setRecipes(data);
@@ -37,7 +37,7 @@ function App() {
 
   const fetchContents = async (id) => {
     console.log('this will fetch the content for a selected recipe', id);
-    let res = await fetch(`http://localhost:3000/api/v1/recipes/${id}/contents`);
+    let res = await fetch(`${apiUrl}api/v1/recipes/${id}/contents`);
     let data = await res.json();
     console.log(data);
     setContents(data);
