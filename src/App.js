@@ -13,10 +13,11 @@ function App() {
 
   const fetchCategories = async () => {
     console.log('this will fetch all the food categories');
-    let res = await fetch('${process.env.API_URL}/api/v1/categories');
+    console.log(process.env.API_URL)
+    /* let res = await fetch('${process.env.API_URL}/api/v1/categories');
     let data = await res.json();
     console.log(data);
-    setCategories(data);
+    setCategories(data); */
   };
 
   useEffect(() => {
