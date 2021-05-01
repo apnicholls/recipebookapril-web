@@ -10,14 +10,16 @@ function App() {
   const [contents, setContents] = useState([]);
   const [selectedContent, setSelectedContent] = useState();
 
+  let apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+
 
   const fetchCategories = async () => {
     console.log('this will fetch all the food categories');
     console.log(process.env.REACT_APP_API_URL)
-    /* let res = await fetch('${process.env.API_URL}/api/v1/categories');
+    let res = await fetch(`${apiUrl}/api/v1/categories`);
     let data = await res.json();
     console.log(data);
-    setCategories(data); */
+    setCategories(data); 
   };
 
   useEffect(() => {
