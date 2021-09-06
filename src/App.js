@@ -6,7 +6,9 @@ import Dashboard from "./dashboard";
 function Auth () {
   return (
     <div>
-      Authentication
+{/*       <form onSubmit={onSignIn}>
+        
+      </form> */}
     </div>
   )
 }
