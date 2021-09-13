@@ -1,14 +1,55 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {Button,Collapse,Row,Col} from 'antd'
 import Dashboard from "./dashboard";
 
 function Auth () {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [retypePassword, setRetypePassword] = useState('');
+
+  const onSignIn = async () => {
+  };
+
+  const onSignUp = async () => {
+  };
+
+
   return (
     <div>
-{/*       <form onSubmit={onSignIn}>
-        
-      </form> */}
+      <form onSubmit={onSignIn}>
+                <Row type={'flex'} align={'center'} className={'mt-5'}>
+                    <Col span={24}>
+                        <input type="email" value={email} onChange={(ev) => setEmail(ev.currentTarget.value)} required className={'border w-full rounded'} placeholder={'Email address'}/>
+                    </Col>
+                    <Col span={24} className={'mt-5'}>
+                        <input type="password" value={password} onChange={(ev) => setPassword(ev.currentTarget.value)} required className={'border w-full rounded'} placeholder={'Password'}/>
+                    </Col>
+                    <Col span={24} className={'mt-5'}>
+                        <Button htmlType={'submit'} className={'border-0 bg-edorble-yellow-500 hover:bg-edorble-yellow-600 hover:text-black w-full rounded font-bold'}>Submit</Button>
+                    </Col>
+                </Row>
+            </form>
+            <form onSubmit={onSignUp}>
+                <Row type={'flex'} align={'center'} className={'mt-5'}>
+                    <Col span={24}>
+                        <input type="email" value={email} onChange={(ev) => setEmail(ev.currentTarget.value)} required className={'border w-full rounded'} placeholder={'Email address'}/>
+                    </Col>
+                    <Col span={24} className={'mt-5'}>
+                        <input type="password" value={password} onChange={(ev) => setPassword(ev.currentTarget.value)} required className={'border w-full rounded'} placeholder={'Password'}/>
+                    </Col>
+                    <Col span={24} className={'mt-5'}>
+                        <input type="password" value={retypePassword} onChange={(ev) => setRetypePassword(ev.currentTarget.value)} required className={'border w-full rounded'} placeholder={'Retype Password'}/>
+                        {(password != retypePassword) && <small className={'text-red-500 font-bold'}>Passwords don't match</small>}
+                    </Col>
+                    <Col span={24} className={'mt-5'}>
+                        <Button  htmlType={'submit'} disabled={password != retypePassword} className={'border-0 bg-edorble-yellow-500 hover:bg-edorble-yellow-600 hover:text-black w-full rounded font-bold'}>Submit</Button>
+                        {/*<Button loading={loading} disabled={password != retypePassword} type="primary" htmlType={'submit'} className={'border-0 w-full rounded font-bold'}>Submit</Button>*/}
+                    </Col>
+                </Row>
+            </form>
     </div>
   )
 }
